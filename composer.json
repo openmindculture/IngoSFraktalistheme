@@ -1,18 +1,19 @@
 {
-  "name": "swag/theme-skeleton",
-  "description": "Theme skeleton plugin",
-  "type": "shopware-platform-plugin",
-  "license": "MIT",
-  "autoload": {
-    "psr-4": {
-      "IngoSFraktalistheme\\": "src/"
+    "name": "ingo-s/ingo-sfraktalistheme",
+    "description": "Theme skeleton plugin",
+    "version": "0.0.1",
+    "type": "shopware-platform-plugin",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "IngoSFraktalistheme\\": "src/"
+        }
+    },
+    "extra": {
+        "shopware-plugin-class": "IngoSFraktalistheme\\IngoSFraktalistheme",
+        "label": {
+            "de-DE": "Theme IngoSFraktalistheme plugin",
+            "en-GB": "Theme IngoSFraktalistheme plugin"
+        }
     }
-  },
-  "extra": {
-    "shopware-plugin-class": "IngoSFraktalistheme\\IngoSFraktalistheme",
-    "label": {
-      "de-DE": "Theme IngoSFraktalistheme plugin",
-      "en-GB": "Theme IngoSFraktalistheme plugin"
-    }
-  }
 }

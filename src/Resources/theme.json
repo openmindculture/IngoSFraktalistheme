@@ -8,7 +8,7 @@
   ],
   "style": [
     "app/storefront/src/scss/overrides.scss",
-    "@Storefront",
+    "@StorefrontBootstrap",
     "app/storefront/src/scss/base.scss"
   ],
   "script": [
@@ -18,5 +18,35 @@
   "asset": [
     "@Storefront",
     "app/storefront/src/assets"
-  ]
+  ],
+    "config": {
+        "blocks": {
+            "settings": {
+                "label": {
+                    "en-GB": "Fraktalistheme Settings",
+                    "de-DE": "Fraktalistheme-Einstellungen"
+                }
+            }
+        },
+        "sections": {
+            "overriddenVariables": {
+                "label": {
+                    "en-GB": "Fraktalistheme Overwritten Variables",
+                    "de-DE": "Fraktalistheme überschriebene Variablen"
+                }
+            }
+        },
+        "fields": {
+            "sw-color-brand-primary": {
+                "label": {
+                    "en-GB": "Fraktalistheme Primary Color",
+                    "de-DE": "Fraktalistheme Hauptfarbe"
+                },
+                "type": "color",
+                "block": "settings",
+                "section": "overriddenVariables",
+                "value": "#ff1493"
+            }
+        }
+    }
 }
