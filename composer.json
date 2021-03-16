@@ -1,7 +1,7 @@
 {
     "name": "ingo-s/ingo-s-fraktalistheme",
     "description": "Theme skeleton plugin",
-    "version": "0.1.01",
+    "version": "0.1.2",
     "type": "shopware-platform-plugin",
     "license": "MIT",
     "autoload": {
