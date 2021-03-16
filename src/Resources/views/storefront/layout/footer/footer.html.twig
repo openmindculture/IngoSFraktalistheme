@@ -1,0 +1,24 @@
+{% sw_extends '@Storefront/storefront/layout/footer/footer.html.twig' %}
+
+{% block layout_footer_service_menu_content %}
+    {{ parent() }}
+    (Font:
+        <a
+            href="https://www.huertatipografica.com/en/fonts/bitter-ht"
+            target="_blank"
+            rel="noopener"
+        >
+            Bitter
+        </a>
+    )
+{% endblock %}
+
+{% block layout_footer_copyright %}
+    <div class="footer-copyright">
+        {{ "footer.copyrightInfo"|trans|sw_sanitize }}
+        <img
+            src="{{ asset('bundles/ingosfraktalistheme/fraktitle.png') }}"
+            alt="Fraktalisman's Demo Shop"
+        >
+    </div>
+{% endblock %}
