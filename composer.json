@@ -1,13 +1,17 @@
 {
     "name": "ingo-s/ingo-s-fraktalistheme",
     "description": "Theme skeleton plugin",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "type": "shopware-platform-plugin",
     "license": "MIT",
     "autoload": {
         "psr-4": {
             "IngoSFraktalistheme\\": "src/"
         }
+    },
+    "require": {
+        "shopware/core": "6.*",
+        "shopware/administration": "6.*"
     },
     "extra": {
         "shopware-plugin-class": "IngoSFraktalistheme\\IngoSFraktalistheme",
