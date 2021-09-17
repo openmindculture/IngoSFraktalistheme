@@ -5,16 +5,16 @@ namespace IngoSFraktalistheme\Core\Content\Ingorance;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityCollection;
 
 /**
- * @method void             add(CustomEntity $entity)
- * @method void             set(string $key, CustomEntity $entity)
- * @method CustomEntity[]   getIterator()
- * @method CustomEntity[]   getElements()
- * @method CustomEntity|null get(string $key)
- * @method CustomEntity|null first()]
- * @method CustomEntity|null last()
+ * @method void             add(IngoranceCollection $entity)
+ * @method void             set(string $key, IngoranceCollection $entity)
+ * @method IngoranceCollection[]   getIterator()
+ * @method IngoranceCollection[]   getElements()
+ * @method IngoranceCollection|null get(string $key)
+ * @method IngoranceCollection|null first()]
+ * @method IngoranceCollection|null last()
  */
 
-class CustomEntityCollection extends EntityCollection
+class IngoranceCollection extends EntityCollection
 {
     protected function getExpectedClass(): string
     {

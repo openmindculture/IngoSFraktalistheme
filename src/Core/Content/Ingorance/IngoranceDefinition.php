@@ -9,42 +9,62 @@ use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\PrimaryKey;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\Flag\Required;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\IdField;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\StringField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\FkField;
+use Shopware\Core\Framework\DataAbstractionLayer\Field\ManyToOneAssociationField;
+use Shopware\Core\System\Country\CountryDefinition;
 
-class CustomEntityDefinition extends EntityDefinition
+class IngoranceDefinition extends EntityDefinition
 {
     public function getEntityName(): string
     {
-        // TODO
+        return 'ingos_fraktalismtheme';
     }
 
     public function getCollectionClass(): string
     {
-        // TODO
+        return IngoranceCollection::class;
     }
 
     public function getEntityClass(): string
     {
-        // TODO
+        return IngoranceEntity::class;
     }
 
     protected function defineFields(): FieldCollection
     {
-        return new FieldCollection([
-            (new IdField('id', 'id'))->addFlags(new Required(), new PrimaryKey()),
-            (new BoolField('active', 'active')),
-            (new StringField('name', 'name'))
-            /*
-             * StringField street
-             * StringField post_code
-             * StringField city
-             * StringField url
-             * StringField telephone
-             * StringField open_times
-             * FkField country_i
-             * ManyToOneAssociation country to CountryDefinition
-             *
-             * required: name street post_code city
-             */
-        ]);
+        /*
+         * StringField street
+         * StringField post_code
+         * StringField city
+         * StringField url
+         * StringField telephone
+         * StringField open_times
+         * FkField country_id
+         * ManyToOneAssociation country to CountryDefinition
+         *
+         * required: name street post_code city
+         */
+        return new FieldCollection(
+            [
+                (new IdField('id', 'id'))
+                    ->addFlags(new Required(), new PrimaryKey()),
+                new BoolField('active', 'active'),
+                (new StringField('name','name'))->addFlags(new Required()),
+                (new StringField('street','street'))->addFlags(new Required()),
+                (new StringField('post_code','post_code'))->addFlags(new Required()),
+                (new StringField('city','city'))->addFlags(new Required()),
+                new StringField('url','url'),
+                new StringField('telephone','telephone'),
+                new StringField('open_times','open_times'),
+                new FkField('country_id','countryId', CountryDefinition::class),
+                new ManyToOneAssociationField(
+                    'country',
+                    'country_id',
+                    CountryDefinition::class,
+                    'id',
+                    false
+                )
+            ]
+        );
     }
 }

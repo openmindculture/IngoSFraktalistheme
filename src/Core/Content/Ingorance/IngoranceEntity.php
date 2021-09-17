@@ -5,7 +5,7 @@ namespace IngoSFraktalistheme\Core\Content\Ingorance;
 use Shopware\Core\Framework\DataAbstractionLayer\Entity;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityIdTrait;
 
-class CustomEntity extends Entity
+class IngoranceEntity extends Entity
 {
     use EntityIdTrait;
 
