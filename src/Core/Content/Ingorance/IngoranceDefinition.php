@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace IngoSFraktalistheme\Core\Content\IngoEntity;
+namespace IngoSFraktalistheme\Core\Content\Ingorance;
 
 use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\FieldCollection;
