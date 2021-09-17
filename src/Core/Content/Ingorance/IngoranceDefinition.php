@@ -18,6 +18,8 @@ class IngoranceDefinition extends EntityDefinition
     public function getEntityName(): string
     {
         return 'ingos_fraktalismtheme';
+        // TODO sollte die Entity immer genau wie das Plugin heißen?
+        // im Tutorial schreiben sie hier imm" "swag_shop_finder"
     }
 
     public function getCollectionClass(): string
@@ -51,11 +53,11 @@ class IngoranceDefinition extends EntityDefinition
                 new BoolField('active', 'active'),
                 (new StringField('name','name'))->addFlags(new Required()),
                 (new StringField('street','street'))->addFlags(new Required()),
-                (new StringField('post_code','post_code'))->addFlags(new Required()),
+                (new StringField('post_code','postCode'))->addFlags(new Required()),
                 (new StringField('city','city'))->addFlags(new Required()),
                 new StringField('url','url'),
                 new StringField('telephone','telephone'),
-                new StringField('open_times','open_times'),
+                new StringField('open_times','openTimes'),
                 new FkField('country_id','countryId', CountryDefinition::class),
                 new ManyToOneAssociationField(
                     'country',

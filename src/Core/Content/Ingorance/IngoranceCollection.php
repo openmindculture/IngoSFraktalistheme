@@ -18,6 +18,6 @@ class IngoranceCollection extends EntityCollection
 {
     protected function getExpectedClass(): string
     {
-        return CustomEntity::class; // TODO
+        return IngoranceEntity::class;
     }
 }

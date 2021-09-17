@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="IngoSFraktalistheme\Core\Content\Ingorance\IngoranceDefinition">
+            <tag name="shopware.entity.definition" entity="ingorance" />
+            <!--
+            // TODO sollte die Entity immer genau wie das Plugin heißen?
+            // muss hier "ingorance" oder "ingos_fraktalismtheme" stehen?
+            // im Tutorial schreiben sie hier imm" "swag_shop_finder"
+            -->
+        </service>
+    </services>
+</container>
