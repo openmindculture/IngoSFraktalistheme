@@ -5,11 +5,12 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <service id="IngoSFraktalistheme\Core\Content\Ingorance\IngoranceDefinition">
-            <tag name="shopware.entity.definition" entity="ingorance" />
+            <tag name="shopware.entity.definition" entity="ingos_ingorance" />
             <!--
             // TODO sollte die Entity immer genau wie das Plugin heißen?
             // muss hier "ingorance" oder "ingos_fraktalismtheme" stehen?
             // im Tutorial schreiben sie hier imm" "swag_shop_finder"
+            // oder mein Kürzel davor wegen TABLE name? also ingos_ingorance
             -->
         </service>
     </services>
