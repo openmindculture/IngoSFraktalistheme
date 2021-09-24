@@ -18,8 +18,6 @@ class IngoranceDefinition extends EntityDefinition
     public function getEntityName(): string
     {
         return 'ingos_ingorance';
-        // TODO sollte die Entity immer genau wie das Plugin heißen?
-        // im Tutorial schreiben sie hier imm" "swag_shop_finder"
         // vgl. DI tag, einheitlich mit jenem und mit Table name
     }
 

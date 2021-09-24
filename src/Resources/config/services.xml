@@ -6,12 +6,6 @@
     <services>
         <service id="IngoSFraktalistheme\Core\Content\Ingorance\IngoranceDefinition">
             <tag name="shopware.entity.definition" entity="ingos_ingorance" />
-            <!--
-            // TODO sollte die Entity immer genau wie das Plugin heißen?
-            // muss hier "ingorance" oder "ingos_fraktalismtheme" stehen?
-            // im Tutorial schreiben sie hier imm" "swag_shop_finder"
-            // oder mein Kürzel davor wegen TABLE name? also ingos_ingorance
-            -->
         </service>
     </services>
 </container>
