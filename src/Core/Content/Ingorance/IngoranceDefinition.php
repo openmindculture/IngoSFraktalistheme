@@ -18,7 +18,7 @@ class IngoranceDefinition extends EntityDefinition
     public function getEntityName(): string
     {
         return 'ingos_ingorance';
-        // vgl. DI tag, einheitlich mit jenem und mit Table name
+        // vgl. DI tag, einheitlich mit jenem, mit Table name, mit services.xml
     }
 
     public function getCollectionClass(): string

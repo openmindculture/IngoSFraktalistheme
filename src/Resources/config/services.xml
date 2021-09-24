@@ -5,7 +5,16 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <service id="IngoSFraktalistheme\Core\Content\Ingorance\IngoranceDefinition">
-            <tag name="shopware.entity.definition" entity="ingos_ingorance" />
+            <tag name="shopware.entity.definition" entity="ingos_ingorance"/>
+        </service>
+
+        <service id="IngoSFraktalistheme\Core\Api\DemoDataController" public="true">
+            <argument id="country.repository" type="service"/>
+            <argument id="ingos_ingorance.repository" type="service"/>
+
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
         </service>
     </services>
 </container>
