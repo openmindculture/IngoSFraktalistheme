@@ -10,6 +10,7 @@ use Shopware\Core\System\Country\CountryEntity;
 use Shopware\Core\System\Country\Exception\CountryNotFoundException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 /** RouteScope
  * @RouteScope(scopes={"api"})
@@ -35,9 +36,13 @@ class DemoDataController extends AbstractController
         $this->ingoranceRepository = $ingoranceRepository;
     }
 
+    /**
+     * @Route("/api/v{version}/_action/ingos_ingorance/generate", name="api.custom.ingos_ingorance.generate", methods={"POST"})
+     * @return Response
+     */
     public function generate(): Response
     {
-
+// TODO implement
     }
 
     /**
