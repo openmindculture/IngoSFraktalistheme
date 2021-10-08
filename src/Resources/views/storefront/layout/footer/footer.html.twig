@@ -1,5 +1,11 @@
 {% sw_extends '@Storefront/storefront/layout/footer/footer.html.twig' %}
 
+{% block layout_footer_navigation_columns %}
+    {{ parent() }}
+    <h2>layout_footer_navigation_columns</h2>
+    {{ dump() }}
+{% endblock %}
+
 {% block layout_footer_service_menu_content %}
     {{ parent() }}
     (Font:
