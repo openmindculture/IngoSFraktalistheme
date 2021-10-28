@@ -22,12 +22,12 @@ class DemoDataController extends AbstractController
     /**
      * @var EntityRepositoryInterface
      */
-    private $countryRepository;
+    private EntityRepositoryInterface $countryRepository;
 
     /**
      * @var EntityRepositoryInterface
      */
-    private $ingoranceRepository;
+    private EntityRepositoryInterface $ingoranceRepository;
 
     public function __construct(
         EntityRepositoryInterface $countryRepository,
@@ -64,7 +64,7 @@ class DemoDataController extends AbstractController
         }
 
         $this->ingoranceRepository->create($data, $context);
-        
+
         return new Response('', Response::HTTP_NO_CONTENT);
     }
 
