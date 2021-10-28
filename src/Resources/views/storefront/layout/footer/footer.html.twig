@@ -3,6 +3,9 @@
 {% block layout_footer_navigation_columns %}
     {{ parent() }}
     <h2>layout_footer_navigation_columns</h2>
+    {% if page.footer.extensions.ingos_ingorance %}
+        {% sw_include '@Storefront/layout/footer/ingorance-footer.html.twig' %}
+    {% endif %}
 {% endblock %}
 
 {% block layout_footer_service_menu_content %}
