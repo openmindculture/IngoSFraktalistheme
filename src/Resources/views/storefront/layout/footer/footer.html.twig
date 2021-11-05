@@ -4,8 +4,11 @@
     {{ parent() }}
     <h2>layout_footer_navigation_columns</h2>
     {% if page.footer.extensions.ingos_ingorance %}
+        <span>wenn das hier nicht ausgeführt wird, warum dann das include?</span>
         {% sw_include '@Storefront/layout/footer/ingorance-footer.html.twig' %}
+        <!-- sw_include './ingorance-footer.html.twig' -->
     {% endif %}
+    {% sw_include './ingorance-footer.html.twig' %}
 {% endblock %}
 
 {% block layout_footer_service_menu_content %}
