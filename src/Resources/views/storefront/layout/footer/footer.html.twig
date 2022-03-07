@@ -4,14 +4,21 @@
     {{ parent() }}
     <h2>layout_footer_navigation_columns</h2>
     {% if page.footer.extensions.ingos_ingorance %}
-        {% sw_include '@IngoSFraktalistheme/storefront/layout/footer/ingorance-footer.html.twig' %}
+
         <!-- discarded lines that are NOT working:
              sw_include '@Storefront/layout/footer/ingorance-footer.html.twig'
              sw_include './ingorance-footer.html.twig'
          thanks to
          https://stackoverflow.com/questions/62692360/shopware-6-twig-files-not-loaded-when-using-sw-include
          -->
+    {% else %}
+        (include condition failed) => <b style="color:red">Back to square one!!!</b>
+        But what is in page.footer.extensions ?
+        DUMPO: {{ dump() }} :DUMPAROUND
     {% endif %}
+    (try to include anyway)
+    {% sw_include '@IngoSFraktalistheme/storefront/layout/footer/ingorance-footer.html.twig' %}
+    (after include)
 {% endblock %}
 
 {% block layout_footer_service_menu_content %}
