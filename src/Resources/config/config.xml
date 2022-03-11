@@ -6,7 +6,7 @@
         <title>Basic configuration</title>
         <title lang="de-DE">Grundeinstellungen</title>
 
-        <input-field>
+        <input-field type="bool">
             <name>showInStorefront</name>
             <label>Show in storefront</label>
             <label lang="de-DE">Zeige in Storefront</label>
