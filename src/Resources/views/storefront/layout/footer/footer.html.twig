@@ -4,6 +4,20 @@
     {{ parent() }}
     <h2>layout_footer_navigation_columns</h2>
     {% if page.footer.extensions.ingos_ingorance %}
+        <!-- ^ this is false, but what do we try to check here anyway and why?
+               it's not checking our theme (this code wouldn't be executed if the theme is not active;
+               it's checking for our custom data?
+        -->
+        <!-- dump() tells us page.footer.extensions = [] -->
+        <!--          and    page.extensions = [] as well -->
+        <!-- probably we didn't yet complete the prerequisites:
+        Add data to storefront page - Shopware Developer
+        Completely new should only be the last line: $event->getPagelet()->addExtension('product_count', $productCountResult);
+        Basically you're doing here, is to fetch actual pagelet instance from the event and add the data to the template.
+        This data will then be available via the name product_count, but we'll get to that in the next section.
+        source: https://developer.shopware.com/.../plugins/plugins/storefront/add-data-to-storefront-page
+
+        -->
 
         <!-- discarded lines that are NOT working:
              sw_include '@Storefront/layout/footer/ingorance-footer.html.twig'
