@@ -38,29 +38,16 @@ class FooterSubscriber implements EventSubscriberInterface
 
     public function onFooterPageletLoaded(FooterPageletLoadedEvent $event): void
     {
-        error_log('IngosFraktalistheme: FooterSubscriber: onFooterPageletLoaded (via error_log)');
-        // Shopware()->Container()->get('pluginlogger')->info('IngosFraktalistheme: FooterSubscriber: onFooterPageletLoaded (via pluginlogger)');
         if(!$this->systemConfigService->get('IngosFraktalistheme.config.showInStorefront')) {
-            error_log('IngosFraktalistheme: FooterSubscriber: onFooterPageletLoaded: not configured to showInStorefront');
+            // function returns here
             return;
         }
-
+        // following code is not executed
         $shops = $this->fetchShops($event->getContext());
-
+        // which extension name is correct and why? both are empty when tested, as this code is never executed
         $event->getPagelet()->addExtension('ingos_fraktalistheme', $shops);
         $event->getPagelet()->addExtension('ingos_ingorance', $shops);
-        error_log('*** error_log test von FooterSubscriber: onFooterPageletLoaded ***');
-        error_log('*** custom dest /var/log/custom.log', 3, '/var/log/custom.log');
-        error_log('*** custom dest var/log/custom.log', 3, 'var/log/custom.log');
-        /*
-         * ABER hier addExtension ingos_fraktalistheme
-         * doch dort test auf     ingos_ingorance
-         *
-         * Sind aktuell aber beide leer.
-         * Kommt der Code überhaupt hier hin? (jetzt wäre logging doch hilfreich)
-         * Könnten wir hier alternativ in ingos_ingorance schreiben?
-         * (These: anderes hat keinen Effekt (aber auch keinen Fehler?!) weil es das Ziel nicht gibt.
-         */
+        $event->thisMethodDoesNotExist('onFooterPageletLoaded'); // TODO remove "debug logging"
     }
 
     private function fetchShops(Context $context): IngoranceCollection

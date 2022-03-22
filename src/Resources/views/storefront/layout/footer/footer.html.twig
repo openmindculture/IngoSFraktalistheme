@@ -1,9 +1,11 @@
 {% sw_extends '@Storefront/storefront/layout/footer/footer.html.twig' %}
 
 {% block layout_footer_navigation_columns %}
-    {{ parent() }}
+    {{ parent() }} new if/elseif-extensions
     <h2>layout_footer_navigation_columns</h2>
     {% if page.footer.extensions.ingos_ingorance %}
+        page.footer.extensions.ingos_ingorance is true
+    {% elseif page.footer.extensions.ingos_fraktalistheme %}
         <!-- ^ this is false, but what do we try to check here anyway and why?
                it's not checking our theme (this code wouldn't be executed if the theme is not active;
                it's checking for our custom data?
