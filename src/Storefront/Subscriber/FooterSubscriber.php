@@ -40,14 +40,21 @@ class FooterSubscriber implements EventSubscriberInterface
     {
         if(!$this->systemConfigService->get('IngosFraktalistheme.config.showInStorefront')) {
             // function returns here
-            return;
+            // but it should not if the config.showInStorefront is now a boolean and the setting is checked!
+            // Where do we find the actual settings (config is not in our custom table but in a default SW table)
+            // SELECT configuration_value from system_config WHERE configuration_key = "IngosFraktalistheme.config.showInStorefront"
+            // All of this is correct so far, and I used the same getter syntax in another plugin in the past.
+            // Coding style using negation to return early also should be current best practice as far as I know.
+            // return;
+            // TODO solve this config problem!
         }
         // following code is not executed
         $shops = $this->fetchShops($event->getContext());
         // which extension name is correct and why? both are empty when tested, as this code is never executed
         $event->getPagelet()->addExtension('ingos_fraktalistheme', $shops);
         $event->getPagelet()->addExtension('ingos_ingorance', $shops);
-        $event->thisMethodDoesNotExist('onFooterPageletLoaded'); // TODO remove "debug logging"
+        // $event->thisMethodDoesNotExist('onFooterPageletLoaded'); // TODO remove "debug logging"
+        // now this function has been completed and the rest in the footer is also working
     }
 
     private function fetchShops(Context $context): IngoranceCollection
