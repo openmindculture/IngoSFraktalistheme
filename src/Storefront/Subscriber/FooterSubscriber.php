@@ -46,11 +46,16 @@ class FooterSubscriber implements EventSubscriberInterface
             // All of this is correct so far, and I used the same getter syntax in another plugin in the past.
             // Coding style using negation to return early also should be current best practice as far as I know.
             // return;
-            // TODO solve this config problem!
+            // TODO solve this config problem (later)!
         }
-        // following code is not executed
+        // following code is not executed (unless we comment out the if above)
+
         $shops = $this->fetchShops($event->getContext());
-        // which extension name is correct and why? both are empty when tested, as this code is never executed
+        // where is $shops to be inserted into our extension?! missing code TODO
+
+        // which extension name is correct and why?
+        // should be ingos_ingorance because n:m relation
+        // of entity/extension to theme/plugin
         $event->getPagelet()->addExtension('ingos_fraktalistheme', $shops);
         $event->getPagelet()->addExtension('ingos_ingorance', $shops);
         // $event->thisMethodDoesNotExist('onFooterPageletLoaded'); // TODO remove "debug logging"
