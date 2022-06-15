@@ -51,7 +51,8 @@ class FooterSubscriber implements EventSubscriberInterface
         // following code is not executed (unless we comment out the if above)
 
         $shops = $this->fetchShops($event->getContext());
-        // where is $shops to be inserted into our extension?! missing code TODO
+        // $shops will be inserted into our extension below,
+        // but it still has no content?! probably still missing code TODO
 
         // which extension name is correct and why?
         // should be ingos_ingorance because n:m relation
