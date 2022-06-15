@@ -1,2 +1,23 @@
 <h3>ingorance-footer.html.twig (included file)</h3>
 <!-- TODO show actual data -->
+<div class="col-md4 footer-column js-footer-column">
+    <div class="footer-column-headline footer-headline js-footer-column-headline js-collapse-footer-column-trigger"
+         data-target="#collapseFooterHotline"
+         aria-expanded="true"
+         aria-controls="collapseFooterHotline">
+        Stores
+        <div class="footer-column-toggle">
+            <span class="footer-plus-icon">{% sw_icon 'plus' %}</span>
+            <span class="footer-minus-icon">{% sw_icon 'minus' %}</span>
+        </div>
+    </div>
+    <div id="collapseFooterHotline"
+         class="footer-column-content collapse js-footer-column-content footer-contact"
+         aria-labelledby="headingOne">
+        <ul>
+            {% for shop in ingos_ingorance.elements %}
+                <li><a href="#" data-toggle="modal" data-target="shop-{{ shop.id }}">{{ shop.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
