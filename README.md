@@ -33,6 +33,52 @@ IngoSFraktalistheme modifies default colours and adds custom data to the footer,
 
 DemoDateController returns country data which is used as a Criteria for a database lookup to find shops. This happens on FooterPageletLoaded in the backend while preparing data for the frontend.
 
+### Populate the shop finder database with demo data
+
+Use the API (making requests via Insomnia, Postman, or curl on the command line):
+* Request an authentication token: POST http://localhost:8000/api/oauth/token
+  * `client_id` (found in the [admin backend](http://localhost:8000/admin#/sw/integration/index) as "Access key ID" after enabling a user by adding a permission to use the REST API instead, like documented here:
+    https://developers.shopware.com/developers-guide/rest-api/
+> To enable access to the REST API, the shop owner must authorize one (or more) users in the Shopware backend.
+
+> Simply open the Shopware backend and open the User Administration window, under Settings. From the list of existing users displayed on this window, select Edit for the desired user and mark the enabled checkbox in the API Access section.
+
+> You will get a randomly generated API access key, which needs to be included in your API requests for authentication. After clicking Save, the changes will take effect. If the edited user is currently logged in, you might need to clear the backend cache, and then log out and log in for your changes to take effect.
+  * `client_secret` (called "Secret or secure access key" in the backend)
+  * `grant_type: client_credentials`
+
+The request body might look like this as JSON in the insomnia client:
+```json
+{
+    "client_id": "SWUAOFPSUZDGWMLWRXR6ETZ5AG",
+    "client_secret": "RFhWSldVQTZ4emc1d2dZRHhla3IyRmMxb29PdmFaR0xROWJIQ3U",
+    "grant_type": "client_credentials"
+}
+```
+
+* Copy the `access_token` from the response
+* Call the faker factory generator action: POST http://localhost:8000/api/v1/_action/ingos_ingorance/generate
+
+TODO: ... and then we currently get the error message
+"The controller for URI "/api/v1/_action/ingos_ingorance/generate" is not callable: Controller "DemoDataController" has required constructor arguments and does not exist in the container. Did you forget to define the controller as a service?"
+
+But after fixing the above, we would continue like this:
+
+Verify that the table `ingos_ingorance` has been populated (using Adminer, PhpMyAdmin, or the SQL CLI), e.g.
+http://localhost:8001/?server=mysql%3A3306%2Fshopware&username=app&db=shopware&select=ingos_ingorance
+
+### Use version-agnostic, language-agnostic, relative paths
+
+Keep in mind that, in our code, we must always use version-agnostic calls, e.g.
+`@Route("/api/v{version}/_action/ingos_ingorance/generate")`
+so that the Shopware core can use the appropriate / latest version.
+
+When a plugin is reviewed for release in the official Shopware extension / app store,
+reviewers will make sure that there is no hard-coded dependency
+* of a specific API version (plugin might be tested with an arbitrary version like `v8`)
+* of an absolute path (plugin might be tested in a subdirectory of another, existing Shopware installation)
+* of a specific language (plugin might be tested with a non-default shop admin language like Dutch)
+
 ## Files
 
 IngoSFraktalistheme uses the recommended directory structure of a symfony bundle used to extend Shopware. `src/Core/Api` defines the demo data controller in `DemoDataController.php`, `src/Core/Content` defines our new custom `Ingorance` entity using 3 files (`IngoranceCollection.php`, `IngoranceDefinition.php`, and `IngoranceEntity.php`). The migration code to extend the SQL database is in `src/Migration`.
