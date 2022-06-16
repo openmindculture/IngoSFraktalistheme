@@ -18,43 +18,6 @@
             </call>
         </service>
 
-        <!--
-            Schritt für Schritt mit Docs und Video vergleichen,
-            eigentlich n1ce dass alles korrekt scheint,
-            wenn es dann bloß noch funktionieren würde...
-
-
-            Beim call der API bekamen wir hier
-            "The controller for URI "/api/v1/_action/ingos_ingorance/generate" is not callable:
-            Controller "DemoDataController" has required constructor arguments and does not exist in the container.
-            Did you forget to define the controller as a service?"
-            Steht denn was in den Server Logs? Bei Settings -> System -> Event Logs steht überhaupt gar nichts,
-            im var/log/dev.log
-            steht immerhin überhaupt was,
-            und zwar nicht wenig, aber nach dem InvalidateCacheTask leider nichts mehr,
-            also kein Wort zu unserem API Call error :-(
-
-            Aber wenn ich das Stack Trace vom Symfony Kernel weiter verfolge,
-            tauchen doch noch konkretere Details auf:
-
-            Internal Server Error",
-            "detail": "Too few arguments to function DemoDataController::__construct(),
-            0 passed in \/app\/vendor\/symfony\/http-kernel\/Controller\/ControllerResolver.php on line 147
-            and exactly 2 expected"
-
-            Dazu hatte ich auch schon früher mal bei Stackoverflow Fragen mit ähnlichen Fehlermeldungen angesehen,
-            und im Shopware-Forum finde ich eine ähnliche Frage von mir selbst(!) damals zum wao plugin.
-            Laut mowlwurf's Verweis auf shopware/swag-docs-api-controller
-            braucht der Controller nur eine Route, aber KEINE Service Definition!
-
-
-
-            Warum denken wir, dass wir sie bräuchten? Macht Dzösch das im Tutorial?
-
-            Es wird auch in der Shopware 6 Dokumentation genannt.
-            Aber vielleicht ist auch nur das explizite Repostory Argument fehl am Platze?
-        -->
-
         <service id="IngoSFraktalistheme\Storefront\Subscriber\FooterSubscriber">
             <argument id="Shopware\Core\System\SystemConfig\SystemConfigService" type="service" />
             <argument id="ingos_ingorance.repository" type="service"/>
