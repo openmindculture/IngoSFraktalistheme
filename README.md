@@ -62,6 +62,14 @@ The request body might look like this as JSON in the insomnia client:
 TODO: ... and then we currently get the error message
 "The controller for URI "/api/v1/_action/ingos_ingorance/generate" is not callable: Controller "DemoDataController" has required constructor arguments and does not exist in the container. Did you forget to define the controller as a service?"
 
+Reviewing earlier, similar problems, some more ideas to check
+* is `services.xml` at the right place in the file system?
+* Do we need a service definition for an API controller anyway?
+  see mowlwurf's response linking to
+  https://github.com/shopware/swag-docs-api-controller
+  ^ that example only refers the route, but no service definition for that route's controller
+  (probably obsolete due to autowiring or some other implicit convention?)
+
 But after fixing the above, we would continue like this:
 
 Verify that the table `ingos_ingorance` has been populated (using Adminer, PhpMyAdmin, or the SQL CLI), e.g.

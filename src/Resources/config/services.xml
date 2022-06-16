@@ -4,19 +4,40 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
+        <!--
         <service id="IngoSFraktalistheme\Core\Content\Ingorance\IngoranceDefinition">
             <tag name="shopware.entity.definition" entity="ingos_ingorance"/>
         </service>
 
         <service id="IngoSFraktalistheme\Core\Api\DemoDataController" public="true">
             <argument id="country.repository" type="service"/>
-            <!-- TODO muss das denn ingos_ingorance oder ingos_fraktalistheme sein??? -->
+
             <argument id="ingos_ingorance.repository" type="service"/>
 
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
         </service>
+        -->
+        <!-- Beim call der API bekamen wir hier
+            "The controller for URI "/api/v1/_action/ingos_ingorance/generate" is not callable:
+            Controller "DemoDataController" has required constructor arguments and does not exist in the container.
+            Did you forget to define the controller as a service?"
+            Steht denn was in den Server Logs? Bei Settings -> System -> Event Logs steht überhaupt gar nichts,
+            im var/log/dev.log
+            steht immerhin überhaupt was,
+            und zwar nicht wenig, aber nach dem InvalidateCacheTask leider nichts mehr,
+            also kein Wort zu unserem API Call error :-(
+
+            Dazu hatte ich auch schon früher mal bei Stackoverflow Fragen mit ähnlichen Fehlermeldungen angesehen,
+            und im Shopware-Forum finde ich eine ähnliche Frage von mir selbst(!) damals zum wao plugin.
+            Laut mowlwurf's Verweis auf shopware/swag-docs-api-controller
+            braucht der Controller nur eine Route, aber KEINE Service Definition!
+            Warum denken wir, dass wir sie bräuchten? Macht Dzösch das im Tutorial?
+
+            Das ist im Video leider sehr unübersichtlich, ohne sein Repo zu sehen.
+            Gibt es Demo Code zum Tutorial?
+        -->
 
         <service id="IngoSFraktalistheme\Storefront\Subscriber\FooterSubscriber">
             <argument id="Shopware\Core\System\SystemConfig\SystemConfigService" type="service" />
