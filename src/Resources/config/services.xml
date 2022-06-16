@@ -4,7 +4,7 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <!--
+
         <service id="IngoSFraktalistheme\Core\Content\Ingorance\IngoranceDefinition">
             <tag name="shopware.entity.definition" entity="ingos_ingorance"/>
         </service>
@@ -12,13 +12,15 @@
         <service id="IngoSFraktalistheme\Core\Api\DemoDataController" public="true">
             <argument id="country.repository" type="service"/>
 
+            <!--
             <argument id="ingos_ingorance.repository" type="service"/>
+            -->
 
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
         </service>
-        -->
+
         <!-- Beim call der API bekamen wir hier
             "The controller for URI "/api/v1/_action/ingos_ingorance/generate" is not callable:
             Controller "DemoDataController" has required constructor arguments and does not exist in the container.
@@ -33,10 +35,13 @@
             und im Shopware-Forum finde ich eine ähnliche Frage von mir selbst(!) damals zum wao plugin.
             Laut mowlwurf's Verweis auf shopware/swag-docs-api-controller
             braucht der Controller nur eine Route, aber KEINE Service Definition!
+
+
+            
             Warum denken wir, dass wir sie bräuchten? Macht Dzösch das im Tutorial?
 
-            Das ist im Video leider sehr unübersichtlich, ohne sein Repo zu sehen.
-            Gibt es Demo Code zum Tutorial?
+            Es wird auch in der Shopware 6 Dokumentation genannt.
+            Aber vielleicht ist auch nur das explizite Repostory Argument fehl am Platze?
         -->
 
         <service id="IngoSFraktalistheme\Storefront\Subscriber\FooterSubscriber">
