@@ -14,9 +14,62 @@
          class="footer-column-content collapse js-footer-column-content footer-contact"
          aria-labelledby="headingOne">
         <ul>
+            <!-- TODO why don't they need to put the full path in the tutorial but I do? -->
+            <!-- missing some definition of a template variable, import, namespace, anything like that? -->
             {% for shop in page.footer.extensions.ingos_ingorance.elements %}
-                <li><a href="#" data-toggle="modal" data-target="shop-{{ shop.id }}">{{ shop.name }}</a></li>
+                <!-- Note: don't forget the hash sign which is of course necessary but only added later in the tutorial after missing in the first place,
+                TODO: check for other bugs or missing details in the tutorial code! -->
+                <li><a href="#" data-toggle="modal" data-target="#shop-{{ shop.id }}">{{ shop.name }}</a></li>
             {% endfor %}
         </ul>
     </div>
 </div>
+
+<!-- TODO where to add shop details for modals,
+     TODO use localization snippets,
+     what else TODO to finish tutorial?
+     is it unnecessary micro optimization to want to avoid doing the same loop 2 times in the same template? -->
+{% for shop in page.footer.extensions.ingos_ingorance.elements %}
+    <div class="modal" tabindex="-1" role="dialog" id="shop-{{ shop.id }}">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{ shop.name }}</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        {{ shop.name }}<br>
+                        {{ shop.street }}<br>
+                        {{ shop.postcode }} {{ shop.city }}<br>
+                        <!-- Note: country is an object, use country.name here! -->
+                        <!-- TODO add/edit demo data custom fields to test everything! -->
+                        {% if shop.country.name %}
+                            {{ shop.country.name }}<br>
+                        {% endif %}
+                        {% if shop.url %}
+                            Website: <a href="{{ shop.url }}" target="_blank" rel="noopener">
+                                {{ shop.url }}
+                            </a>
+                            <br>
+                        {% endif %}
+                        {% if shop.telephone %}
+                            Tel.: <a href="tel:{{ shop.telephone }}" target="_blank" rel="noopener">
+                                {{ shop.telephone }}
+                            </a>
+                            <br>
+                        {% endif %}
+                        {% if shop.openTimes %}
+                            Open times: {{ shop.openTimes }}<br>
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
