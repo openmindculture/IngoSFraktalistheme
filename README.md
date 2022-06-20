@@ -83,7 +83,8 @@ IngoSFraktalistheme uses the recommended directory structure of a symfony bundle
 * [ ] system config service not working properly (see. 2022_1)
 * [ ] logger not working properly (see 2021_3)
 * [ ] incorrect / inconsistent capitalization of folder names?
-* [ ] localize every hard-coded template string using snippets (lesson 10)
+* [x] localize every hard-coded template string using snippets (lesson 10)
+* [ ] localize images that contain text: best practice?
 * [ ] we should not need a full path to loop over our custom data in twig
 * [ ] analyze, fix, refactor using tooling (PhpStan, SonarLint, built-in PhpStorm tools, ...)
 * [ ] recap, read, and understand everything that I did (would-be code review preparation)

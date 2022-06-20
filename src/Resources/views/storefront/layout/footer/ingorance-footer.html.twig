@@ -4,7 +4,7 @@
          data-target="#collapseFooterHotline"
          aria-expanded="true"
          aria-controls="collapseFooterHotline">
-        Stores
+        {{ "ingosfraktalistheme.stores"|trans }}
         <div class="footer-column-toggle">
             <span class="footer-plus-icon">{% sw_icon 'plus' %}</span>
             <span class="footer-minus-icon">{% sw_icon 'minus' %}</span>
@@ -50,24 +50,24 @@
                             {{ shop.country.name }}<br>
                         {% endif %}
                         {% if shop.url %}
-                            Website: <a href="{{ shop.url }}" target="_blank" rel="noopener">
+                            {{ "ingosfraktalistheme.website"|trans }}: <a href="{{ shop.url }}" target="_blank" rel="noopener">
                                 {{ shop.url }}
                             </a>
                             <br>
                         {% endif %}
                         {% if shop.telephone %}
-                            Tel.: <a href="tel:{{ shop.telephone }}" target="_blank" rel="noopener">
+                            {{ "ingosfraktalistheme.telephoneShort"|trans }}: <a href="tel:{{ shop.telephone }}" target="_blank" rel="noopener">
                                 {{ shop.telephone }}
                             </a>
                             <br>
                         {% endif %}
                         {% if shop.openTimes %}
-                            Open times: {{ shop.openTimes }}<br>
+                            {{ "ingosfraktalistheme.openTimes"|trans }}: {{ shop.openTimes }}<br>
                         {% endif %}
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">{{ "general.closeMenu"|trans }}</button>
                 </div>
             </div>
         </div>
