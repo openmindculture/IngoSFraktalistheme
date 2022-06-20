@@ -77,3 +77,13 @@ reviewers will make sure that there is no hard-coded dependency
 ## Files
 
 IngoSFraktalistheme uses the recommended directory structure of a symfony bundle used to extend Shopware. `src/Core/Api` defines the demo data controller in `DemoDataController.php`, `src/Core/Content` defines our new custom `Ingorance` entity using 3 files (`IngoranceCollection.php`, `IngoranceDefinition.php`, and `IngoranceEntity.php`). The migration code to extend the SQL database is in `src/Migration`.
+
+## Known Issues
+
+* [ ] system config service not working properly (see. 2022_1)
+* [ ] logger not working properly (see 2021_3)
+* [ ] incorrect / inconsistent capitalization of folder names?
+* [ ] localize every hard-coded template string using snippets (lesson 10)
+* [ ] we should not need a full path to loop over our custom data in twig
+* [ ] analyze, fix, refactor using tooling (PhpStan, SonarLint, built-in PhpStorm tools, ...)
+* [ ] recap, read, and understand everything that I did (would-be code review preparation)
