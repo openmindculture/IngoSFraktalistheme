@@ -81,7 +81,7 @@ IngoSFraktalistheme uses the recommended directory structure of a symfony bundle
 ## Known Issues
 
 * [ ] system config service not working properly (see. 2022_1)
-* [ ] logger not working properly (see 2021_3)
+* [x] logger not working properly (see 2021_3)
 * [x] incorrect / inconsistent capitalization of folder names?
   (inconsistent and unintuitive, but consistent with the Shopware tutorial)
 * [x] localize every hard-coded template string using snippets (lesson 10)

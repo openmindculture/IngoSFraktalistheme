@@ -10,7 +10,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 use Shopware\Storefront\Pagelet\Footer\FooterPageletLoadedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Shopware\Components\Logger;
+use Psr\Log\LoggerInterface;
 
 class FooterSubscriber implements EventSubscriberInterface
 {
@@ -23,11 +23,13 @@ class FooterSubscriber implements EventSubscriberInterface
 
     public function __construct(
         SystemConfigService $systemConfigService,
-        EntityRepositoryInterface $ingoranceService
+        EntityRepositoryInterface $ingoranceService,
+        LoggerInterface $logger
     )
     {
         $this->systemConfigService = $systemConfigService;
         $this->ingoranceRepository = $ingoranceService;
+        $this->logger = $logger;
     }
 
     public static function getSubscribedEvents()
@@ -65,6 +67,7 @@ class FooterSubscriber implements EventSubscriberInterface
         // of entity/extension to theme/plugin
         $event->getPagelet()->addExtension('ingos_fraktalistheme', $shops);
         $event->getPagelet()->addExtension('ingos_ingorance', $shops);
+        $this->logger->info('testlog________________________________X_X_X_X_X_X________________TEST_______________');
     }
 
     private function fetchShops(Context $context): IngoranceCollection
