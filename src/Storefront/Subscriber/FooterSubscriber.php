@@ -10,6 +10,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
 use Shopware\Storefront\Pagelet\Footer\FooterPageletLoadedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Shopware\Components\Logger;
 
 class FooterSubscriber implements EventSubscriberInterface
 {
@@ -22,11 +23,13 @@ class FooterSubscriber implements EventSubscriberInterface
 
     public function __construct(
         SystemConfigService $systemConfigService,
-        EntityRepositoryInterface $ingoranceService
+        EntityRepositoryInterface $ingoranceService,
+        Logger $logger
     )
     {
         $this->systemConfigService = $systemConfigService;
         $this->ingoranceRepository = $ingoranceService;
+        $this->logger = $logger;
     }
 
     public static function getSubscribedEvents()
@@ -64,6 +67,7 @@ class FooterSubscriber implements EventSubscriberInterface
         // of entity/extension to theme/plugin
         $event->getPagelet()->addExtension('ingos_fraktalistheme', $shops);
         $event->getPagelet()->addExtension('ingos_ingorance', $shops);
+        $this->logger->info('Log Info');
         // $event->thisMethodDoesNotExist('onFooterPageletLoaded'); // TODO remove "debug logging"
         // now this function has been completed and the rest in the footer is also working
     }
