@@ -82,7 +82,8 @@ IngoSFraktalistheme uses the recommended directory structure of a symfony bundle
 
 * [ ] system config service not working properly (see. 2022_1)
 * [ ] logger not working properly (see 2021_3)
-* [ ] incorrect / inconsistent capitalization of folder names?
+* [x] incorrect / inconsistent capitalization of folder names?
+  (inconsistent and unintuitive, but consistent with the Shopware tutorial)
 * [x] localize every hard-coded template string using snippets (lesson 10)
 * [ ] localize images that contain text: best practice?
 * [ ] loop fake shops: paginate large amount of data: best practice?
