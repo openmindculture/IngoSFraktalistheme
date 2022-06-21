@@ -21,8 +21,8 @@ class FooterSubscriber implements EventSubscriberInterface
     /** @var EntityRepositoryInterface */
     private EntityRepositoryInterface $ingoranceRepository;
 
-    /** @var Logger */
-    private Logger $logger;
+    /** @var LoggerInterface */
+    private LoggerInterface $logger;
 
     public function __construct(
         SystemConfigService $systemConfigService,
