@@ -3,6 +3,7 @@
 namespace IngoSFraktalistheme\Storefront\Subscriber;
 
 use IngoSFraktalistheme\Core\Content\Ingorance\IngoranceCollection;
+use PhpParser\Node\Expr\Cast\Bool_;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
@@ -44,6 +45,24 @@ class FooterSubscriber implements EventSubscriberInterface
 
     public function onFooterPageletLoaded(FooterPageletLoadedEvent $event): void
     {
+        $this->logger->info("_^_ _^_ _^_ check systemConfigService get IngosFraktalistheme.config.showInStorefront ");
+        /** @var Boolean */
+        $showInStorefront = $this->systemConfigService->get('IngosFraktalistheme.config.showInStorefront');
+        /** @var String */
+        $showInStorefrontToString = $showInStorefront ? 'true' : 'false';
+        $this->logger->info($showInStorefrontToString);
+        /** @var String */
+        $systemConfigServiceClass = get_class($this->systemConfigService);
+        $this->logger->info("get class of this systemConfigService: $systemConfigServiceClass _^_ _^_ _^_");
+        // ^ has no class ?!
+        if ($this->systemConfigService->get('IngosFraktalistheme.config.showInStorefront'))
+        {
+            $this->logger->info('...showInStorefront is true');
+        }
+        else
+        {
+            $this->logger->info('...showInStorefront is false');
+        }
         if(!$this->systemConfigService->get('IngosFraktalistheme.config.showInStorefront')) {
             // function returns here
             // but it should not if the config.showInStorefront is now a boolean and the setting is checked!
