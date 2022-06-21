@@ -4,7 +4,7 @@ namespace IngoSFraktalistheme\Storefront\Subscriber;
 
 use IngoSFraktalistheme\Core\Content\Ingorance\IngoranceCollection;
 use Shopware\Core\Framework\Context;
-use Shopware\Core\Framework\DataAbstractionLayer\EntityRepositoryInterface;
+use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
@@ -18,15 +18,15 @@ class FooterSubscriber implements EventSubscriberInterface
     /** @var SystemConfigService */
     private SystemConfigService $systemConfigService;
 
-    /** @var EntityRepositoryInterface */
-    private EntityRepositoryInterface $ingoranceRepository;
+    /** @var EntityRepository */
+    private EntityRepository $ingoranceRepository;
 
     /** @var LoggerInterface */
     private LoggerInterface $logger;
 
     public function __construct(
         SystemConfigService $systemConfigService,
-        EntityRepositoryInterface $ingoranceService,
+        EntityRepository $ingoranceService,
         LoggerInterface $logger
     )
     {
