@@ -87,8 +87,10 @@ class FooterSubscriber implements EventSubscriberInterface
         // which extension name is correct and why?
         // should be ingos_ingorance because n:m relation
         // of entity/extension to theme/plugin
-        $event->getPagelet()->addExtension('ingos_fraktalistheme', $shops);
-        $event->getPagelet()->addExtension('ingos_ingorance', $shops);
+        if ($shops) {
+            $event->getPagelet()->addExtension('ingos_fraktalistheme', $shops);
+            $event->getPagelet()->addExtension('ingos_ingorance', $shops);
+        }
         $this->logger->info('testlog________________________________X_X_X_X_X_X________________TEST_______________');
     }
 
