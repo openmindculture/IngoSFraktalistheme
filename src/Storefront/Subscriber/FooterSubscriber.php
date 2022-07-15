@@ -77,12 +77,7 @@ class FooterSubscriber implements EventSubscriberInterface
 
         $shops = $this->fetchShops($event->getContext());
         // $shops will be inserted into our extension below,
-        // but it still has no content?! probably still missing code TODO
-        // EntityRepository seems to be defined completely
-        // but where do we populate it with actual demo data?
-        // is there a migration for database content in the code? is there anything in the database tables?
-        // Migration*.php only sets the structure but no data,
-        // where is adminer to inspect the database? localhost:8001
+        // to ensure demo data after installation call FakerFactory API route on localhost
 
         // which extension name is correct and why?
         // should be ingos_ingorance because n:m relation
