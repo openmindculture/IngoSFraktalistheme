@@ -3,7 +3,6 @@
 namespace IngoSFraktalistheme\Storefront\Subscriber;
 
 use IngoSFraktalistheme\Core\Content\Ingorance\IngoranceCollection;
-use PhpParser\Node\Expr\Cast\Bool_;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
@@ -46,21 +45,18 @@ class FooterSubscriber implements EventSubscriberInterface
     public function onFooterPageletLoaded(FooterPageletLoadedEvent $event): void
     {
         $this->logger->info("_^_ _^_ _^_ check systemConfigService get IngosFraktalistheme.config.showInStorefront ");
-        /** @var Boolean */
+        /** @var Boolean $showInStorefront */
         $showInStorefront = $this->systemConfigService->get('IngosFraktalistheme.config.showInStorefront');
-        /** @var String */
+        /** @var String $showInStorefrontToString */
         $showInStorefrontToString = $showInStorefront ? 'true' : 'false';
         $this->logger->info($showInStorefrontToString);
-        /** @var String */
+        /** @var String $systemConfigServiceClass */
         $systemConfigServiceClass = get_class($this->systemConfigService);
         $this->logger->info("get class of this systemConfigService: $systemConfigServiceClass _^_ _^_ _^_");
         // ^ has no class ?!
-        if ($this->systemConfigService->get('IngosFraktalistheme.config.showInStorefront'))
-        {
+        if ($this->systemConfigService->get('IngosFraktalistheme.config.showInStorefront')) {
             $this->logger->info('...showInStorefront is true');
-        }
-        else
-        {
+        } else {
             $this->logger->info('...showInStorefront is false');
         }
         if(!$this->systemConfigService->get('IngosFraktalistheme.config.showInStorefront')) {
@@ -82,7 +78,18 @@ class FooterSubscriber implements EventSubscriberInterface
         // which extension name is correct and why?
         // should be ingos_ingorance because n:m relation
         // of entity/extension to theme/plugin
+
+        // ExtendableTrait::addExtension(string $name, ?Struct $extension)
+        // @deprecated tag:v6.5.0 - second param $extension will not allow null anymore
+        // PhpStorm inspection notes: "condition is always true because $shops is evaluated at this point"
+        // (and it gets autoamtically tooltipped as of type IngoSFraktalistheme\Core\Content\Ingorance\IngoranceCollection
+        // so addExtension should be valid and not deprecated here, see
+        // https://stackoverflow.com/questions/72968625/replacement-for-deprecated-shopware-6-addextension-method
+        // the deprecated note will be removed since 6.5.0 then you can still use it.
         if ($shops) {
+            // the deprecated note will be removed since 6.5.0 then you can still use it
+            // https://stackoverflow.com/questions/72968625/replacement-for-deprecated-shopware-6-addextension-method
+            // @deprecated tag:v6.5.0 - second param $extension will not allow null anymore as I understood that we still use that function but the second param can not be null.
             $event->getPagelet()->addExtension('ingos_fraktalistheme', $shops);
             $event->getPagelet()->addExtension('ingos_ingorance', $shops);
         }
