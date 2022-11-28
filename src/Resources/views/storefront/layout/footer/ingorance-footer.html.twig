@@ -1,10 +1,11 @@
 <h3>ingorance-footer.html.twig (included file)</h3>
+{% set ingos_ingorance = page.footer.extensions.ingos_ingorance %}
 <div class="col-md4 footer-column js-footer-column">
     <div class="footer-column-headline footer-headline js-footer-column-headline js-collapse-footer-column-trigger"
          data-target="#collapseFooterHotline"
          aria-expanded="true"
          aria-controls="collapseFooterHotline">
-        Stores
+        {{ "ingosfraktalistheme.stores"|trans }}
         <div class="footer-column-toggle">
             <span class="footer-plus-icon">{% sw_icon 'plus' %}</span>
             <span class="footer-minus-icon">{% sw_icon 'minus' %}</span>
@@ -14,9 +15,7 @@
          class="footer-column-content collapse js-footer-column-content footer-contact"
          aria-labelledby="headingOne">
         <ul>
-            <!-- TODO why don't they need to put the full path in the tutorial but I do? -->
-            <!-- missing some definition of a template variable, import, namespace, anything like that? -->
-            {% for shop in page.footer.extensions.ingos_ingorance.elements %}
+            {% for shop in ingos_ingorance.elements %}
                 <!-- Note: don't forget the hash sign which is of course necessary but only added later in the tutorial after missing in the first place,
                 TODO: check for other bugs or missing details in the tutorial code! -->
                 <li><a href="#" data-toggle="modal" data-target="#shop-{{ shop.id }}">{{ shop.name }}</a></li>
@@ -29,7 +28,7 @@
      TODO use localization snippets,
      what else TODO to finish tutorial?
      is it unnecessary micro optimization to want to avoid doing the same loop 2 times in the same template? -->
-{% for shop in page.footer.extensions.ingos_ingorance.elements %}
+{% for shop in ingos_ingorance.elements %}
     <div class="modal" tabindex="-1" role="dialog" id="shop-{{ shop.id }}">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -50,24 +49,24 @@
                             {{ shop.country.name }}<br>
                         {% endif %}
                         {% if shop.url %}
-                            Website: <a href="{{ shop.url }}" target="_blank" rel="noopener">
+                            {{ "ingosfraktalistheme.website"|trans }}: <a href="{{ shop.url }}" target="_blank" rel="noopener">
                                 {{ shop.url }}
                             </a>
                             <br>
                         {% endif %}
                         {% if shop.telephone %}
-                            Tel.: <a href="tel:{{ shop.telephone }}" target="_blank" rel="noopener">
+                            {{ "ingosfraktalistheme.telephoneShort"|trans }}: <a href="tel:{{ shop.telephone }}" target="_blank" rel="noopener">
                                 {{ shop.telephone }}
                             </a>
                             <br>
                         {% endif %}
                         {% if shop.openTimes %}
-                            Open times: {{ shop.openTimes }}<br>
+                            {{ "ingosfraktalistheme.openTimes"|trans }}: {{ shop.openTimes }}<br>
                         {% endif %}
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">{{ "general.closeMenu"|trans }}</button>
                 </div>
             </div>
         </div>

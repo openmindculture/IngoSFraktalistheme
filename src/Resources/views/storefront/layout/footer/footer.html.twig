@@ -1,7 +1,7 @@
 {% sw_extends '@Storefront/storefront/layout/footer/footer.html.twig' %}
 
 {% block layout_footer_navigation_columns %}
-    {{ parent() }} new if/elseif-extensions
+    {{ parent() }}
     <h2>layout_footer_navigation_columns</h2>
     {% if page.footer.extensions.ingos_ingorance %}
         page.footer.extensions.ingos_ingorance is true
@@ -28,17 +28,16 @@
          https://stackoverflow.com/questions/62692360/shopware-6-twig-files-not-loaded-when-using-sw-include
          -->
     {% else %}
-        (include condition failed) => <b style="color:red">Back to square one!!!</b>
-        But what is in page.footer.extensions ?
-        DUMPO: {{ dump() }} :DUMPAROUND
+        (include condition failed)
     {% endif %}
-    (try to include anyway)
+    (include anyway)
+    {# TODDO should this file use snake_case instead of hyphenation? #}
     {% sw_include '@IngoSFraktalistheme/storefront/layout/footer/ingorance-footer.html.twig' %}
 {% endblock %}
 
 {% block layout_footer_service_menu_content %}
     {{ parent() }}
-    This is a block where we can insert an external widget or anything else.
+    {# This is a block where we can insert an external widget or anything else. #}
 {% endblock %}
 
 {% block layout_footer_copyright %}
@@ -48,6 +47,11 @@
             src="{{ asset('bundles/ingosfraktalistheme/fraktitle.png') }}"
             alt="{{ "ingosfraktalistheme.footer.fraktalismansDemoShop"|trans }}"
         >
+        {# TODO: how to "localize" images that contain text?
+           Note: "Bundles" are actually located at different paths:
+            bundles/ingosfraktalistheme/ => src/Resources/public/fraktitle.png
+            localization snippets always in src/Resources/snippet/de-DE/storefront.de-DE.json
+         #}
         {{ "ingosfraktalistheme.footer.fraktalismansDemoShop"|trans }}
     </div>
 {% endblock %}

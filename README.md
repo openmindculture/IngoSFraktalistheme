@@ -81,9 +81,12 @@ IngoSFraktalistheme uses the recommended directory structure of a symfony bundle
 ## Known Issues
 
 * [ ] system config service not working properly (see. 2022_1)
-* [ ] logger not working properly (see 2021_3)
-* [ ] incorrect / inconsistent capitalization of folder names?
-* [ ] localize every hard-coded template string using snippets (lesson 10)
-* [ ] we should not need a full path to loop over our custom data in twig
+* [x] logger not working properly (see 2021_3)
+* [x] incorrect / inconsistent capitalization of folder names?
+  (inconsistent and unintuitive, but consistent with the Shopware tutorial)
+* [x] localize every hard-coded template string using snippets (lesson 10)
+* [ ] localize images that contain text: best practice?
+* [ ] loop fake shops: paginate large amount of data: best practice?
+* [x] we should not need a full path to loop over our custom data in twig
 * [ ] analyze, fix, refactor using tooling (PhpStan, SonarLint, built-in PhpStorm tools, ...)
 * [ ] recap, read, and understand everything that I did (would-be code review preparation)

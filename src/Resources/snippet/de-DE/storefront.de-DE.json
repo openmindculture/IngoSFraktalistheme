@@ -1,7 +1,11 @@
 {
     "ingosfraktalistheme": {
         "footer": {
-            "fraktalismansDemoShop": "Fraktalisman's Demo Shop (Deutsch)"
+            "fraktalismansDemoShop": "Fraktalisman's Demo Shop (Deutsch)",
+            "stores": "Läden",
+            "openTimes": "Öffnungszeiten",
+            "website": "Webseite",
+            "telephoneShort": "Tel."
         }
     }
 }

@@ -19,8 +19,10 @@
         </service>
 
         <service id="IngoSFraktalistheme\Storefront\Subscriber\FooterSubscriber">
+            <!-- This must be in the same order as the constructor arguments in FooterSubscriber.php ! -->
             <argument id="Shopware\Core\System\SystemConfig\SystemConfigService" type="service" />
             <argument id="ingos_ingorance.repository" type="service"/>
+            <argument id="logger" type="service" />
             <tag name="kernel.event_subscriber" />
         </service>
     </services>
