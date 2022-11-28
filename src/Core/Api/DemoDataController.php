@@ -21,18 +21,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class DemoDataController extends AbstractController
 {
     /**
-     * @var EntityRepositoryInterface
+     * @var EntityRepository
      */
-    private EntityRepositoryInterface $countryRepository;
+    private EntityRepository $countryRepository;
 
     /**
-     * @var EntityRepositoryInterface
+     * @var EntityRepository
      */
-    private EntityRepositoryInterface $ingoranceRepository;
+    private EntityRepository $ingoranceRepository;
 
     public function __construct(
-        EntityRepositoryInterface $countryRepository,
-        EntityRepositoryInterface $ingoranceRepository
+        EntityRepository $countryRepository,
+        EntityRepository $ingoranceRepository
     )
     {
         $this->countryRepository = $countryRepository;
